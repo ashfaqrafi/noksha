@@ -1,0 +1,40 @@
+{
+  "name": "noksha",
+  "version": "0.0.1",
+  "description": "Noksha is a Angular2 UI component & beyond",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksharifbd/noksha.git"
+  },
+  "keywords": [
+    "noksha"
+  ],
+  "author": "Kamal Sharif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ksharifbd/noksha/issues"
+  },
+  "homepage": "https://github.com/ksharifbd/noksha#readme",
+  "devDependencies": {
+    "browser-sync": "^2.10.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-declare": "^0.3.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^4.2.1",
+    "gulp-typescript": "^2.10.0",
+    "merge-stream": "^1.0.0",
+    "sassdoc": "^2.1.18",
+    "tslint": "^3.2.0",
+    "typescript": "^1.7.5"
+  }
+}
