@@ -1,10 +1,13 @@
 var gulp = require('gulp');
 var tsc = require('gulp-typescript');
 var tslint = require('gulp-tslint');
+var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync').create();
 
 // Compile typescript sources
 gulp.task('tsc', function() {  
     gulp.src(['source/*.ts'])
+        .pipe(sourcemaps.init())
         .pipe(tsc({
         module: 'commonjs',
         noImplicitAny: false,
@@ -13,8 +16,9 @@ gulp.task('tsc', function() {
         noEmitOnError: false,
         preserveConstEnums: true
         }))
-        .js
-        .pipe(gulp.dest('js/'));
+        .pipe(sourcemaps.write('./smaps'))
+        .pipe(gulp.dest('js/'))
+        .pipe(browserSync.stream());
 });
 
 // linting
@@ -24,10 +28,18 @@ gulp.task('tslint', function(){
     .pipe(tslint.report('full'));
 });
 
+//browser-sync
+gulp.task('serve', ['tsc'], function() {
+    browserSync.init({
+        server: './'
+    });
+});
+
 // watching files
 gulp.task('watch', function(){  
     gulp.watch('source/*.ts', ['tsc']);
+    gulp.watch(['*.html']).on('change', browserSync.reload);
 });
 
 // default task
-gulp.task('default', ['tsc', 'watch']);
+gulp.task('default', ['serve', 'tsc', 'watch']);
