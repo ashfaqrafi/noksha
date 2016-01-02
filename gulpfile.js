@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var tsc = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var sourcemaps = require('gulp-sourcemaps');
+var del = require('del');
+var glob = require('glob');
 var browserSync = require('browser-sync').create();
 
 // Compile typescript sources
@@ -10,7 +12,7 @@ gulp.task('tsc', function() {
         .pipe(sourcemaps.init())
         .pipe(tsc({
         module: 'commonjs',
-        noImplicitAny: false,
+        noImplicitAny: true,
         target: 'ES5',
         removeComments: false,
         noEmitOnError: false,
