@@ -1,3 +1,5 @@
+// jscs:disable disallowTrailingWhitespace
+
 var gulp = require('gulp');
 var tsc = require('gulp-typescript');
 var tslint = require('gulp-tslint');
@@ -11,12 +13,12 @@ gulp.task('tsc', function() {
     gulp.src(['source/*.ts'])
         .pipe(sourcemaps.init())
         .pipe(tsc({
-        module: 'commonjs',
-        noImplicitAny: true,
-        target: 'ES5',
-        removeComments: false,
-        noEmitOnError: false,
-        preserveConstEnums: true
+            module: 'commonjs',
+            noImplicitAny: true,
+            target: 'ES5',
+            removeComments: false,
+            noEmitOnError: false,
+            preserveConstEnums: true
         }))
         .pipe(sourcemaps.write('./smaps'))
         .pipe(gulp.dest('js/'))
@@ -24,7 +26,7 @@ gulp.task('tsc', function() {
 });
 
 // linting
-gulp.task('tslint', function(){
+gulp.task('tslint', function() {
     gulp.src('source/*.ts')
     .pipe(tslint())
     .pipe(tslint.report('full'));
@@ -45,7 +47,7 @@ gulp.task('clean', function() {
 });
 
 // watching files
-gulp.task('watch', function(){  
+gulp.task('watch', function() {  
     gulp.watch('source/*.ts', ['tsc']);
     gulp.watch(['*.html']).on('change', browserSync.reload);
 });
