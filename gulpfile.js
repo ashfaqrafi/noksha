@@ -37,6 +37,13 @@ gulp.task('serve', ['tsc'], function() {
     });
 });
 
+// clean output files
+gulp.task('clean', function() {
+    return del([
+        'js/*.js'
+    ]);
+});
+
 // watching files
 gulp.task('watch', function(){  
     gulp.watch('source/*.ts', ['tsc']);
